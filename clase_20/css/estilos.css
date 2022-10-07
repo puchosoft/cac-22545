@@ -2,9 +2,14 @@
     font-family: sans-serif;
 }
 
+body {
+    background-color: beige;
+}
+
 h1, h2, h3, h4, h5, h6 {
     color:coral;
     background-color: black;
     text-align: center;
     padding: 1vh;
+    margin: 2vh 0;
 }
