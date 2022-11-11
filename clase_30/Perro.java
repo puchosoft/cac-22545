@@ -7,6 +7,7 @@ public class Perro {
     private String sexo;
 
     // 2 metodos constructores (se llaman identico a la clase)
+    // Constructor con 3 parametros
     public Perro(String pelo, String raza, String sexo){
         this.edad = 0;
         this.pelo = pelo;
@@ -14,6 +15,7 @@ public class Perro {
         this.sexo = sexo;
     }
 
+    // Constructor sin parametros
     public Perro(){
     }
 
