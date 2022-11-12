@@ -1,21 +1,21 @@
 public class Animal {
 
-    // Caracteristicas (atributos)
-    // Como no indicamos ningun modificador se sobreentienden PUBLICOS (public)
+    // Características (atributos)
+    // Como no indicamos ningún modificador se sobreentienden PÚBLICOS (public)
     String piel;
     int ojos;
     int edad;
     String habitat = "Mar";
 
-    // Comportamientos (metodos)
-    // Como no indicamos ningun modificador se sobreentienden PUBLICOS (public)
+    // Comportamientos (métodos)
+    // Como no indicamos ningún modificador se sobreentienden PÚBLICOS (public)
     void comer(){
     }
 
     void respirar(){
     }
 
-    // Este metodo devuelve un valor boolean
+    // Este método devuelve un valor boolean
     boolean dormir(){
         return true;
     }
