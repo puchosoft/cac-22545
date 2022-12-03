@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.cac</groupId>
-    <artifactId>clase_36</artifactId>
+    <artifactId>homebanking</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
 
-    <name>clase_36</name>
+    <name>homebanking</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
