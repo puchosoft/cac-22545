@@ -29,36 +29,37 @@ public class Persistencia {
             | Pruebas SELECT |
             +----------------+
              */
-            String qTraerTodo = "SELECT * FROM usuarios";
-            ResultSet resultado = mysql.executeQuery(qTraerTodo);
-
-            System.out.println();
-            // Mostramos el resultado de la consulta
-            while(resultado.next()) {
-                System.out.print(resultado.getString("nombre") + " ");
-                System.out.print(resultado.getString("apellido") + " - ");
-                System.out.print(resultado.getString("email") + " - ");
-                System.out.println(resultado.getString("pais"));
-            }
+//            String qTraerTodo = "SELECT * FROM usuarios";
+//            ResultSet resultado = mysql.executeQuery(qTraerTodo);
+//
+//            System.out.println();
+//            // Mostramos el resultado de la consulta
+//            while(resultado.next()) {
+//                System.out.print(resultado.getString("nombre") + " ");
+//                System.out.print(resultado.getString("apellido") + " - ");
+//                System.out.print(resultado.getString("email") + " - ");
+//                System.out.println(resultado.getString("pais"));
+//            }
 
             /*
             +----------------+
             | Pruebas INSERT |
             +----------------+
              */
-            // String qInsertar = "INSERT INTO usuarios (nombre, apellido, email, pais) VALUES('Maria','Perez','mperez@dominio.com','Argentina')";
-            // int regs = mysql.executeUpdate(qInsertar);
+//             String qInsertar = "INSERT INTO usuarios (nombre, apellido, email, pais) VALUES('Maria','Perez','mperez@dominio.com','Argentina')";
+//             int regs = mysql.executeUpdate(qInsertar);
+//             System.out.println("Registros afectados: "+ regs);
 
-            // Usamos una consulta "preparada" con ? para reemplazar valores
-            //String qInsertPrep = "INSERT INTO usuarios (nombre, apellido, email, pais) VALUES(?, ?, ?, ?)";
-            // Usamos un cursor "preparado" relacionado a la consulta
-            //PreparedStatement mysqlPrep = con.prepareStatement(qInsertPrep);
-
-//           mysqlPrep.setString(1, "Juan");
-//           mysqlPrep.setString(2, "Mendoza");
-//           mysqlPrep.setString(3, "jmendoza@gmail.com");
-//           mysqlPrep.setString(4, "Uruguay");
-//           mysqlPrep.executeUpdate();
+//            // Usamos una consulta "preparada" con ? para reemplazar valores
+//            String qInsertPrep = "INSERT INTO usuarios (nombre, apellido, email, pais) VALUES(?, ?, ?, ?)";
+//            // Usamos un cursor "preparado" relacionado a la consulta
+//            PreparedStatement mysqlPrep = con.prepareStatement(qInsertPrep);
+//
+//            mysqlPrep.setString(1, "Juan");
+//            mysqlPrep.setString(2, "Mendoza");
+//            mysqlPrep.setString(3, "jmendoza@gmail.com");
+//            mysqlPrep.setString(4, "Uruguay");
+//            mysqlPrep.executeUpdate();
 
             /*
             +----------------+
@@ -66,7 +67,7 @@ public class Persistencia {
             +----------------+
              */
 //            String qUpdatePrep = "UPDATE usuarios SET nombre = ?, apellido = ? WHERE id = ?";
-//            mysqlPrep = con.prepareStatement(qUpdatePrep);
+//            PreparedStatement mysqlPrep = con.prepareStatement(qUpdatePrep);
 //            mysqlPrep.setString(1, "Leonardo");
 //            mysqlPrep.setString(2, "Gomez");
 //            mysqlPrep.setInt(3, 7);
@@ -78,13 +79,16 @@ public class Persistencia {
             +----------------+
              */
 //            String qDeletePrep = "DELETE FROM usuarios WHERE pais = ?";
-//            mysqlPrep = con.prepareStatement(qDeletePrep);
+//            PreparedStatement mysqlPrep = con.prepareStatement(qDeletePrep);
 //            mysqlPrep.setString(1, "Colombia");
 //            int regs = mysqlPrep.executeUpdate();
-//            System.out.println(regs);
+//            System.out.println("Registros afectados: "+ regs);
 
-        } catch(SQLException error) {
+            con.close();
+
+        }catch(SQLException error) {
             error.printStackTrace();
-            }
+        }
     }
 }
+
