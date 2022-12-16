@@ -61,6 +61,63 @@ public class UsuarioController extends HttpServlet {
                     session.setAttribute("actualUsername", username);
                     response.sendRedirect("/homebanking/views/user.jsp");
                     break;
+                
+                case "/logoutUser":
+                    session.setAttribute("isLogin", false);
+                    session.setAttribute("actualUsername", "");
+                    response.sendRedirect("/homebanking/");
+                    break;
+                    
+                case "/createUser":
+                    username = request.getParameter("username");
+                    if( udao.getUserByUsername(username) == null){
+                        password = request.getParameter("password");
+                        name = request.getParameter("name");
+                        last_name = request.getParameter("last_name");
+                        email = request.getParameter("email");
+                        actualUser = new Usuario(username,password,name,last_name,email);
+                        regs_afectados = udao.createUser(actualUser);
+                    }
+                    else {
+                        regs_afectados = 2;
+                    }
+                    
+                    session.setAttribute("uCreado", regs_afectados);
+                    response.sendRedirect("/homebanking/views/userCreado.jsp");
+                    break;
+                    
+                case "/viewUser":
+                    username = (String) session.getAttribute("actualUsername");
+                    actualUser = udao.getUserByUsername(username);
+                    
+                    session.setAttribute("actualUser", actualUser);
+                    response.sendRedirect("/homebanking/views/edicion.jsp");
+                    break;
+                    
+                case "/deleteUser":
+                    username = (String) session.getAttribute("actualUsername");
+                    regs_afectados = udao.deleteUser(username);
+                    session.setAttribute("isLogin", false);
+                    session.setAttribute("actualUsername", "");
+                    response.sendRedirect("/homebanking/");
+                    break;
+                
+                case "/updateUser":
+                    username = (String) session.getAttribute("actualUsername");
+                    password = request.getParameter("password");
+                    name = request.getParameter("name");
+                    last_name = request.getParameter("last_name");
+                    email = request.getParameter("email");
+                    actualUser = new Usuario(username, password, name, last_name, email);
+                    regs_afectados = udao.updateUser(actualUser);
+                    
+                    session.setAttribute("actualUser", actualUser);
+                    response.sendRedirect("/homebanking/views/edicion.jsp");
+                    
+                    break;
+                
+                default:
+                    break;
             }
         }
     }

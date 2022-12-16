@@ -36,10 +36,10 @@
                     <a class="nav-link active" href="/homebanking/views/registro.jsp">Registrarme</a>
                 </li>
                 <li class="nav-item mx-2" style="display: <%= !isLogin?"none":"initial" %>">
-                    <a class="nav-link active" href="#">Mi cuenta</a>
+                    <a class="nav-link active" href="/homebanking/usuario/viewUser">Mi cuenta</a>
                 </li>
                 <li class="nav-item mx-2" style="display: <%= !isLogin?"none":"initial" %>">
-                    <a class="nav-link active" href="#">Salir</a>
+                    <a class="nav-link active" href="/homebanking/usuario/logoutUser">Salir</a>
                 </li>
             </ul>
         

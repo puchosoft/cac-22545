@@ -15,7 +15,7 @@
 
 <main class="container d-flex justify-content-center align-items-center">
 
-    <form method="POST" action="/usuario/createUser" class="w-50 px-5 py-4 rounded" >
+    <form method="POST" action="/homebanking/usuario/createUser" class="w-50 px-5 py-4 rounded" >
         <h2 class="mb-4 text-center">Registro</h2>
         <div class="row mb-3">
             <label for="username" class="col-4 formlabel">Usuario:</label>
