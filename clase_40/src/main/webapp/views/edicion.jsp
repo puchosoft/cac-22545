@@ -20,6 +20,7 @@
     String name = actualUser.getName();
     String last_name = actualUser.getLast_name();
     String email = actualUser.getEmail();
+    
 %>
 
 

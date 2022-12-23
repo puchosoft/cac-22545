@@ -50,7 +50,7 @@ public class UsuarioController extends HttpServlet {
             String last_name;
             String email;
             int regs_afectados;
-            
+                        
             switch (action) {
                 case "/loginUser":
                     username = request.getParameter("username");
@@ -75,6 +75,7 @@ public class UsuarioController extends HttpServlet {
                         name = request.getParameter("name");
                         last_name = request.getParameter("last_name");
                         email = request.getParameter("email");
+                        
                         actualUser = new Usuario(username,password,name,last_name,email);
                         regs_afectados = udao.createUser(actualUser);
                     }
@@ -96,9 +97,12 @@ public class UsuarioController extends HttpServlet {
                     
                 case "/deleteUser":
                     username = (String) session.getAttribute("actualUsername");
-                    regs_afectados = udao.deleteUser(username);
-                    session.setAttribute("isLogin", false);
-                    session.setAttribute("actualUsername", "");
+                    
+                    if(udao.getBorrable(username)){
+                        regs_afectados = udao.deleteUser(username);
+                        session.setAttribute("isLogin", false);
+                        session.setAttribute("actualUsername", "");
+                    }
                     response.sendRedirect("/homebanking/");
                     break;
                 

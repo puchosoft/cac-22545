@@ -111,4 +111,23 @@ public class UsuarioDAO {
                 
         return rs.next();
     }
+    
+        
+    public boolean getBorrable(String username) throws SQLException {
+        PreparedStatement ps;
+        ResultSet rs;
+        boolean borrable = false;
+
+        ps = connection.prepareStatement("SELECT * FROM users WHERE username = ?");
+        ps.setString(1, username);
+
+        rs = ps.executeQuery();
+        
+        if(rs.next()) {
+           borrable = rs.getBoolean("borrable");
+        }
+        
+        return borrable;
+    }
+    
 }
